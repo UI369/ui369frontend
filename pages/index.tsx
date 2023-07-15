@@ -4,10 +4,6 @@ import styles from "../styles/Home.module.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-export const YourApp = () => {
-  return;
-};
-
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
