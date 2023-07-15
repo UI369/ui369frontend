@@ -12,16 +12,14 @@ import { publicProvider } from "wagmi/providers/public";
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     mainnet,
-    polygon,
     optimism,
-    arbitrum,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli] : []),
   ],
   [publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "RainbowKit App",
+  appName: "UI369 Front End",
   projectId: "YOUR_PROJECT_ID",
   chains,
 });
