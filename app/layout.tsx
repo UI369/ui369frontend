@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "UI369 Front End",
+  description: "A Web3 enabled website",
+};
+
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
@@ -35,23 +40,14 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
-function MyApp({
-  Component,
-  pageProps,
-}: AppProps<{
-  session: Session;
-}>) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <SessionProvider refetchInterval={0} session={pageProps.session}>
-        <RainbowKitSiweNextAuthProvider>
-          <RainbowKitProvider chains={chains}>
-            <Component {...pageProps} />
-          </RainbowKitProvider>
-        </RainbowKitSiweNextAuthProvider>
-      </SessionProvider>
-    </WagmiConfig>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
-
-export default MyApp;
